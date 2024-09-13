@@ -117,7 +117,6 @@ export function FlashCard({QandAs, topic, moduleTitle}: {QandAs: any, topic: str
               </Button>
               <span className="className=mt-4 rounded-md p-2 bg-indigo-500 text-white border-white">
               <Link
-                  variant="outline"
                   href={createLearnLink(QAs[currentQA].source)}
                   rel="noopener noreferrer"
                   target="_blank"
