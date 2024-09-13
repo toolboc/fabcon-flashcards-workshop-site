@@ -19,17 +19,17 @@ export function FlashCard({QandAs, topic, moduleTitle}: {QandAs: any, topic: str
 
   const gradients: { [key: string]: string } = {
     "introduction-end-analytics-use-microsoft-fabric": "bg-gradient-to-t from-teal-200 to-teal-700",
-    "get-started-lakehouses": "bg-gradient-to-t from-sky-200 to-sky-700",
-    "use-apache-spark-work-files-lakehouse": "bg-gradient-to-t from-yellow-500 to-red-500",
-    "work-delta-lake-tables-fabric": "bg-gradient-to-t from-green-500 to-blue-500",
     "use-data-factory-pipelines-fabric": "bg-gradient-to-t from-yellow-300 to-green-800",
-    "use-dataflow-gen-2-fabric": "bg-gradient-to-t from-lime-300 to-green-700",
+    "use-apache-spark-work-files-lakehouse": "bg-gradient-to-t from-yellow-500 to-red-500",
     "get-started-data-warehouse": "bg-gradient-to-t from-blue-800 to-blue-400",
-    "administer-fabric": "bg-gradient-to-t from-gray-400 to-black",
-    "describe-medallion-architecture": "bg-gradient-to-t from-yellow-500 to-teal-500",
-    "ingest-data-with-spark-fabric-notebooks": "bg-gradient-to-t from-slate-300 to-green-800",
-    "get-started-kusto-fabric": "bg-gradient-to-t from-teal-600 to-blue-800",
+    "use-dataflow-gen-2-fabric": "bg-gradient-to-t from-lime-300 to-green-700",
+    "work-delta-lake-tables-fabric": "bg-gradient-to-t from-green-500 to-blue-500",
     "explore-event-streams-microsoft-fabric": "bg-gradient-to-t from-sky-800 to-blue-800",
+    "administer-fabric": "bg-gradient-to-t from-gray-400 to-black",
+    "ingest-data-with-spark-fabric-notebooks": "bg-gradient-to-t from-slate-300 to-green-800",
+    "get-started-lakehouses": "bg-gradient-to-t from-sky-200 to-sky-700",
+    "describe-medallion-architecture": "bg-gradient-to-t from-yellow-500 to-teal-500",
+    "get-started-kusto-fabric": "bg-gradient-to-t from-teal-600 to-blue-800",
   }
 
   function getGradient() {
