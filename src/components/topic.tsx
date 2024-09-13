@@ -56,7 +56,7 @@ export function Topic({topics, onTopicChange, onModuleTitleChange}: {topics: any
                 data-module={el.module}
                 data-title={el.title}
                 >
-                Scroll to Flashcards
+                Learn with Flashcards
                 </Link>
                 </CardFooter>
             </Card>
