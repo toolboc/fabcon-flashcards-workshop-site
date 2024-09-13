@@ -18,22 +18,41 @@ export function FlashCard({QandAs, topic, moduleTitle}: {QandAs: any, topic: str
   const [currentQA, setCurrentQA] = useState(0)
 
   const gradients: { [key: string]: string } = {
-    "introduction-end-analytics-use-microsoft-fabric": "bg-gradient-to-t from-pink-500 to-yellow-500",
-    "get-started-lakehouses": "bg-gradient-to-t from-blue-500 to-green-500",
+    "introduction-end-analytics-use-microsoft-fabric": "bg-gradient-to-t from-teal-200 to-teal-700",
+    "get-started-lakehouses": "bg-gradient-to-t from-sky-200 to-sky-700",
     "use-apache-spark-work-files-lakehouse": "bg-gradient-to-t from-yellow-500 to-red-500",
     "work-delta-lake-tables-fabric": "bg-gradient-to-t from-green-500 to-blue-500",
-    "use-data-factory-pipelines-fabric": "bg-gradient-to-t from-red-500 to-yellow-500",
-    "use-dataflow-gen-2-fabric": "bg-gradient-to-t from-blue-500 to-green-500",
-    "get-started-data-warehouse": "bg-gradient-to-t from-yellow-500 to-red-500",
-    "administer-fabric": "bg-gradient-to-t from-gray-700 to-black",
-    "describe-medallion-architecture": "bg-gradient-to-t from-red-500 to-yellow-500",
-    "ingest-data-with-spark-fabric-notebooks": "bg-gradient-to-t from-blue-500 to-green-500",
-    "get-started-kusto-fabric": "bg-gradient-to-t from-yellow-500 to-red-500",
-    "explore-event-streams-microsoft-fabric": "bg-gradient-to-t from-green-500 to-blue-500",
+    "use-data-factory-pipelines-fabric": "bg-gradient-to-t from-yellow-300 to-green-800",
+    "use-dataflow-gen-2-fabric": "bg-gradient-to-t from-lime-300 to-green-700",
+    "get-started-data-warehouse": "bg-gradient-to-t from-blue-800 to-blue-400",
+    "administer-fabric": "bg-gradient-to-t from-gray-400 to-black",
+    "describe-medallion-architecture": "bg-gradient-to-t from-yellow-500 to-teal-500",
+    "ingest-data-with-spark-fabric-notebooks": "bg-gradient-to-t from-slate-300 to-green-800",
+    "get-started-kusto-fabric": "bg-gradient-to-t from-teal-600 to-blue-800",
+    "explore-event-streams-microsoft-fabric": "bg-gradient-to-t from-sky-800 to-blue-800",
   }
 
   function getGradient() {
     return gradients[topic];
+  }
+
+  const cardTitles: { [key: string]: string } = {
+    "introduction-end-analytics-use-microsoft-fabric": "Fabric",
+    "get-started-lakehouses": "Lakehouse",
+    "use-apache-spark-work-files-lakehouse": "Data Engineering",
+    "work-delta-lake-tables-fabric": "Delta Lake",
+    "use-data-factory-pipelines-fabric": "Data Factory",
+    "use-dataflow-gen-2-fabric": "Dataflow Gen2",
+    "get-started-data-warehouse": "Data Warehouse",
+    "administer-fabric": "Fabric Administration",
+    "describe-medallion-architecture": "Medallion Architecture",
+    "ingest-data-with-spark-fabric-notebooks": "Fabric Notebooks",
+    "get-started-kusto-fabric": "Real-Time Intelligence",
+    "explore-event-streams-microsoft-fabric": "Eventstream",
+  }
+
+  function getCardTitle() {
+    return cardTitles[topic];
   }
 
   function flipCard() {
@@ -72,7 +91,7 @@ export function FlashCard({QandAs, topic, moduleTitle}: {QandAs: any, topic: str
   return (
     <div id="flashcard" className="flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900">
       <Card className={`w-96 rounded-xl shadow-md overflow-hidden m-4 text-white ${getGradient()}`}>
-        <h1 className="text-lg m-5">{moduleTitle}</h1>
+        <h1 className="text-lg m-5 uppercase">{getCardTitle()}</h1>
         <ReactCardFlip isFlipped={isFlipped}>
           <div className="react-card-front">
             <div className="pb-8">
