@@ -17,6 +17,25 @@ export function FlashCard({QandAs, topic, moduleTitle}: {QandAs: any, topic: str
   const [isFlipped, setIsFlipped] = useState(false)
   const [currentQA, setCurrentQA] = useState(0)
 
+  const gradients: { [key: string]: string } = {
+    "introduction-end-analytics-use-microsoft-fabric": "bg-gradient-to-t from-pink-500 to-yellow-500",
+    "get-started-lakehouses": "bg-gradient-to-t from-blue-500 to-green-500",
+    "use-apache-spark-work-files-lakehouse": "bg-gradient-to-t from-yellow-500 to-red-500",
+    "work-delta-lake-tables-fabric": "bg-gradient-to-t from-green-500 to-blue-500",
+    "use-data-factory-pipelines-fabric": "bg-gradient-to-t from-red-500 to-yellow-500",
+    "use-dataflow-gen-2-fabric": "bg-gradient-to-t from-blue-500 to-green-500",
+    "get-started-data-warehouse": "bg-gradient-to-t from-yellow-500 to-red-500",
+    "administer-fabric": "bg-gradient-to-t from-gray-700 to-black",
+    "describe-medallion-architecture": "bg-gradient-to-t from-red-500 to-yellow-500",
+    "ingest-data-with-spark-fabric-notebooks": "bg-gradient-to-t from-blue-500 to-green-500",
+    "get-started-kusto-fabric": "bg-gradient-to-t from-yellow-500 to-red-500",
+    "explore-event-streams-microsoft-fabric": "bg-gradient-to-t from-green-500 to-blue-500",
+  }
+
+  function getGradient() {
+    return gradients[topic];
+  }
+
   function flipCard() {
     setIsFlipped(!isFlipped)
   }
@@ -25,18 +44,24 @@ export function FlashCard({QandAs, topic, moduleTitle}: {QandAs: any, topic: str
     setIsFlipped(false)
   }
 
-  function nextCard() {
+  async function nextCard() {
     const index = currentQA
     const nextIndex = (index + 1) % QAs.length
-    setCurrentQA(nextIndex)
     flipToShowQuestion()
+    await delay(200);
+    setCurrentQA(nextIndex)
   }
 
-  function previousCard() {
+  async function previousCard() {
     const index = currentQA
     const previousIndex = (index - 1 + QAs.length) % QAs.length
-    setCurrentQA(previousIndex)
     flipToShowQuestion()
+    await delay(200);
+    setCurrentQA(previousIndex)
+  }
+
+  function delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
   }
 
   // Sample Link: https://learn.microsoft.com/training/modules/ingest-data-with-spark-fabric-notebooks/
@@ -46,37 +71,39 @@ export function FlashCard({QandAs, topic, moduleTitle}: {QandAs: any, topic: str
 
   return (
     <div id="flashcard" className="flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900">
-      <Card className="w-96 bg-[#9ee0cb] rounded-xl shadow-md overflow-hidden m-4">
+      <Card className={`w-96 rounded-xl shadow-md overflow-hidden m-4 text-white ${getGradient()}`}>
         <h1 className="text-lg m-5">{moduleTitle}</h1>
         <ReactCardFlip isFlipped={isFlipped}>
-          <div className="react-card-front bg-[#c0ecdd]">
-            <div className="p-8">
+          <div className="react-card-front">
+            <div className="pb-8">
               <CardHeader>
-                <CardTitle className="text-[#8B4513]">Question</CardTitle>
+                <CardTitle>Question:</CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-[#A0522D] h-44 overflow-auto">{QAs[currentQA].Q}</CardContent>
-              <Button className="mt-4 text-[#CD853F] border-[#CD853F]" variant="outline" onClick={flipCard}>
+              <CardContent className="text-xl h-44 overflow-auto">{QAs[currentQA].Q}</CardContent>
+              <Button className="mt-4 ml-6 border-white bg-indigo-500" variant="outline" onClick={flipCard}>
                 Show Answer
               </Button>
             </div>
           </div>
-          <div className="react-card-back bg-[#c0ecdd]">
-            <div className="p-8">
+          <div className="react-card-back">
+            <div className="pb-8">
               <CardHeader>
-                <CardTitle className="text-[#8B4513]">Answer</CardTitle>
+                <CardTitle>Answer:</CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-[#A0522D] h-44 overflow-auto">{QAs[currentQA].A}
-                <br /><br />
-                <Link
-                  className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300"
+              <CardContent className="text-xl h-44 overflow-auto">
+                {QAs[currentQA].A}
+              </CardContent>
+              <Button className="mt-4 ml-6 mr-6 bg-indigo-500 text-white border-white" variant="outline" onClick={flipCard}>
+                Hide Answer
+              </Button>
+              <span className="className=mt-4 rounded-md p-2 bg-indigo-500 text-white border-white">
+              <Link
+                  variant="outline"
                   href={createLearnLink(QAs[currentQA].source)}
                   rel="noopener noreferrer"
                   target="_blank"
-                >source</Link>
-              </CardContent>
-              <Button className="mt-4 text-[#CD853F] border-[#CD853F]" variant="outline" onClick={flipCard}>
-                Hide Answer
-              </Button>
+                >Learn more</Link>
+              </span>
             </div>
           </div>
         </ReactCardFlip>
