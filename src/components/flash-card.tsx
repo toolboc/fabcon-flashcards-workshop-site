@@ -109,7 +109,7 @@ export function FlashCard({QandAs, topic, moduleTitle}: {QandAs: any, topic: str
               <CardHeader>
                 <CardTitle>Answer:</CardTitle>
               </CardHeader>
-              <CardContent className="text-xl h-44 overflow-auto">
+              <CardContent className="text-base h-44 overflow-auto">
                 {QAs[currentQA].A}
               </CardContent>
               <Button className="mt-4 ml-6 mr-6 bg-indigo-500 text-white border-white" variant="outline" onClick={flipCard}>
