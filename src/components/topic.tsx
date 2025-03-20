@@ -1,9 +1,5 @@
 'use client';
 
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/LQdt33ttiDt
- */
 import { CardTitle, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
 import Link from "next/link"
 import { useCallback } from 'react'
