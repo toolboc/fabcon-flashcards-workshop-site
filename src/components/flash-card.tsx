@@ -58,7 +58,7 @@ export function FlashCard({QandAs, topic, moduleTitle}: {QandAs: any, topic: str
 
   async function nextCard() {
     const index = currentQA
-    const nextIndex = (index + 1) % QAs.length
+    const nextIndex = (index + 1) % QandAs[topic].length
     flipToShowQuestion()
     await delay(200);
     setCurrentQA(nextIndex)
@@ -66,7 +66,7 @@ export function FlashCard({QandAs, topic, moduleTitle}: {QandAs: any, topic: str
 
   async function previousCard() {
     const index = currentQA
-    const previousIndex = (index - 1 + QAs.length) % QAs.length
+    const previousIndex = (index - 1 + QandAs[topic].length) % QandAs[topic].length
     flipToShowQuestion()
     await delay(200);
     setCurrentQA(previousIndex)
