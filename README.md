@@ -1,5 +1,8 @@
 # Flashcards App
 
+
+Sample GitHub Pages Site: [https://alvaro-videla.com/fabcon-flashcards-workshop-site/](https://alvaro-videla.com/fabcon-flashcards-workshop-site/)
+
 Thi is a web app that allows users to create flashcards using AI.
 
 By runign the web app, users can then browse through the flashcards and test their knowledge.
