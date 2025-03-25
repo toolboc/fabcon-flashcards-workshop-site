@@ -20,9 +20,27 @@ const getGradient = (topic: string): string => {
     "get-started-lakehouses": "bg-gradient-to-t from-sky-200 to-sky-700",
     "describe-medallion-architecture": "bg-gradient-to-t from-yellow-500 to-teal-500",
     "get-started-kusto-fabric": "bg-gradient-to-t from-teal-600 to-blue-800",
+    "query-data-warehouse-microsoft-fabric": "bg-gradient-to-t from-teal-600 to-blue-800",
+    "monitor-fabric-data-warehouse": "bg-gradient-to-t from-teal-200 to-teal-700",
+    "load-data-into-microsoft-fabric-data-warehouse": "bg-gradient-to-t from-yellow-300 to-green-800",
+    "query-data-kql-database-microsoft-fabric": "bg-gradient-to-t from-yellow-500 to-red-500",
+    "train-track-model-fabric": "bg-gradient-to-t from-blue-800 to-blue-400",
+    "preprocess-data-with-data-wrangler-microsoft-fabric": "bg-gradient-to-t from-blue-800 to-blue-400",
+    "get-started-data-science-fabric": "bg-gradient-to-t from-lime-300 to-green-700",
+    "generate-batch-predictions-fabric": "bg-gradient-to-t from-green-500 to-blue-500",
+    "get-started-sql-database-microsoft-fabric": "bg-gradient-to-t from-sky-800 to-blue-800",
+    "get-started-with-graphql-microsoft-fabric": "bg-gradient-to-t from-gray-400 to-black",
+    "secure-data-access-in-fabric": "bg-gradient-to-t from-slate-300 to-green-800",
+    "secure-data-warehouse-in-microsoft-fabric": "bg-gradient-to-t from-sky-200 to-sky-700",
+    "monitor-fabric-items": "bg-gradient-to-t from-yellow-500 to-teal-500",
+    "fabric-data-governance-purview": "bg-gradient-to-t from-teal-600 to-blue-800",
+    "create-manage-power-bi-assets": "bg-gradient-to-t from-teal-200 to-teal-700",
+    "design-scalable-semantic-models": "bg-gradient-to-t from-yellow-300 to-green-800",
+    "enforce-power-bi-model-security": "bg-gradient-to-t from-yellow-500 to-red-500",
+    "implement-cicd-in-fabric": "bg-gradient-to-t from-blue-800 to-blue-400"
   }
 
-  return gradients[topic]
+  return gradients[topic] || "bg-gradient-to-t from-blue-800 to-blue-400";
 }
 
 const getCardTitle = (topic: string): string => {
@@ -41,7 +59,7 @@ const getCardTitle = (topic: string): string => {
     "explore-event-streams-microsoft-fabric": "Eventstream",
   }
 
-  return cardTitles[topic]
+  return cardTitles[topic] || "Flashcard";
 }
 
 export function FlashCard({QandAs, topic, moduleTitle}: {QandAs: any, topic: string, moduleTitle: string}) {
